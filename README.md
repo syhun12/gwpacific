@@ -7,40 +7,52 @@ GW Pacific corporate website prototype. The visual system is based on the suppli
 - GW Red: `#E60012`
 - Pacific Blue: `#00A0E9`
 - White / light gray dominant layout
-- Dark charcoal used only for typography and the contact/footer section
+- Dark charcoal used for high-contrast sections
 - Vector logo: `assets/img/gwpacific-logo.svg`
+
+## Design study
+
+The current homepage was rebuilt after reviewing 20+ corporate and digital-product references across maritime, energy, engineering, consulting and modern frontend product sites.
+
+Representative references included Wärtsilä, DNV, Kongsberg Maritime, Damen, Alfa Laval, Rolls-Royce, Siemens Energy, ABB, Jacobs, Worley, Saipem, TechnipFMC, Emerson, Honeywell, Schneider Electric, SLB, BCG, McKinsey, Vercel, Linear and Stripe.
+
+The prototype does not copy a single reference. It combines:
+
+- industrial photography and project-led storytelling
+- large editorial typography
+- asymmetric grid composition
+- strong but controlled corporate brand color
+- technical UI details inspired by modern frontend/product websites
+- subtle borders, coordinates, status labels and data surfaces
+- restrained motion that does not interfere with native scrolling
+
+The requested `Next.js-like` feeling is interpreted as a modern frontend design language rather than migrating the project to React/Next.js. The implementation remains PHP/HTML/CSS/JS-ready.
 
 ## Stack
 
-- PHP-ready HTML structure
-- Static HTML preview
+- Shared static HTML prototype
+- PHP entry point (`index.php` serves `index.html`)
 - CSS3 responsive layout
 - Vanilla JavaScript
 - Swiper 11
-- GSAP + ScrollTrigger (lightweight reveal only)
+- GSAP + ScrollTrigger for lightweight reveals only
 - Google Fonts: Inter / Noto Sans KR
 
 ## Current homepage structure
 
-1. Split hero + image slider
+1. High-density split hero / industrial image slider
 2. Company introduction
-3. How We Work
-4. Business
-5. Selected Projects
-6. Network & Experience
+3. Continuous business-development process
+4. Capability / business grid
+5. Selected project carousel
+6. Global network / experience visual
 7. Contact CTA
 
-`INDUSTRIES`, `PLATFORM`, and `INSIGHTS` are intentionally excluded. ABOUT is focused on company introduction only.
+`INDUSTRIES`, `PLATFORM`, and `INSIGHTS` are intentionally excluded. ABOUT remains focused on company introduction.
 
 ## Preview without PHP
 
-Open `index.html` directly, or use VS Code Live Server.
-
-```text
-index.html
-```
-
-No PHP installation is required for this design-preview file.
+Open `index.html` directly or use VS Code Live Server. No PHP installation is required for design review.
 
 ## PHP preview
 
@@ -56,8 +68,8 @@ Then open `http://localhost:8080`.
 
 ```text
 /
-├─ index.html          # static design preview
-├─ index.php           # PHP-ready homepage
+├─ index.html
+├─ index.php
 ├─ README.md
 └─ assets/
    ├─ css/
@@ -70,33 +82,26 @@ Then open `http://localhost:8080`.
 
 ## Interaction policy
 
-The prototype deliberately avoids scroll-jacking. Browser-native vertical scrolling is preserved.
+Browser-native vertical scrolling is preserved. No Lenis, scroll-jacking, forced horizontal scrolling, custom cursor or magnetic movement is used.
 
 Included:
-- Swiper hero slider with manual navigation and restrained autoplay
+
+- Swiper hero slider with restrained autoplay and manual navigation
 - Swiper project carousel
-- GSAP/ScrollTrigger one-time reveal transitions
-- Sticky responsive header
-- Full-screen mobile navigation
+- top-of-page scroll progress indicator
+- GSAP/ScrollTrigger one-time text and image-mask reveals
+- one-time process-line animation
+- sticky responsive navigation and active-section state
+- full-screen mobile navigation
 - `prefers-reduced-motion` fallback
-
-Removed from the first prototype:
-- Lenis smooth-scroll override
-- Scroll-driven scrub/parallax effects
-- Custom cursor
-- Magnetic button movement
-- Business hover accordion
-- Forced horizontal scroll interactions
-
-This keeps the interaction layer closer to a production corporate website and improves mouse-wheel, trackpad, touch and mobile scrolling behavior.
 
 ## Image note
 
-The current prototype uses external Unsplash images as temporary placeholders. Production should replace them with GW Pacific-owned project, exhibition, meeting and industrial photographs.
+The prototype currently uses external Unsplash imagery as temporary layout assets. Production should replace these with GW Pacific-owned exhibition, buyer meeting, industrial-site and project photography.
 
 ## GNUBOARD conversion plan
 
-After the visual direction is approved, the next phase can split the prototype into a GNUBOARD theme:
+After visual approval, the prototype can be split into a GNUBOARD theme structure:
 
 ```text
 /theme/gwpacific/
