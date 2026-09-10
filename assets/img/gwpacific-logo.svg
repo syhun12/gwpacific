@@ -1,4 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2047 512" role="img" aria-labelledby="title desc">
-<title id="title">GW Pacific</title><desc id="desc">Supplied GW Pacific corporate logo</desc>
-<image width="2047" height="512" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB/8AAAIA..." preserveAspectRatio="xMidYMid meet"/>
+  <title id="title">GW Pacific</title>
+  <desc id="desc">GW Pacific corporate wordmark in red and blue</desc>
+  <rect width="669" height="512" fill="#E60012"/>
+  <rect x="669" width="1378" height="512" fill="#00A0E9"/>
+  <text x="84" y="379" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="352" font-weight="300" letter-spacing="-18">GW</text>
+  <text x="764" y="379" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="352" font-weight="300" letter-spacing="-10">PACIFIC</text>
 </svg>
