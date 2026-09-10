@@ -1,32 +1,50 @@
 # GW Pacific Website
 
-GW Pacific corporate website prototype. The current phase focuses on the visual system and homepage interaction layer before converting the layout into a full GNUBOARD theme.
+GW Pacific corporate website prototype. The visual system is based on the supplied GW Pacific logo and is structured for later conversion into a GNUBOARD/PHP theme.
+
+## Brand system
+
+- GW Red: `#E60012`
+- Pacific Blue: `#00A0E9`
+- White / light gray dominant layout
+- Dark charcoal used only for typography and the contact/footer section
+- Vector logo: `assets/img/gwpacific-logo.svg`
 
 ## Stack
 
 - PHP-ready HTML structure
+- Static HTML preview
 - CSS3 responsive layout
 - Vanilla JavaScript
-- GSAP + ScrollTrigger
-- Lenis smooth scrolling
 - Swiper 11
-- Google Fonts: Manrope / Noto Sans KR
+- GSAP + ScrollTrigger (lightweight reveal only)
+- Google Fonts: Inter / Noto Sans KR
 
 ## Current homepage structure
 
-1. Hero slider
-2. About GW Pacific
+1. Split hero + image slider
+2. Company introduction
 3. How We Work
 4. Business
-5. Featured Projects
+5. Selected Projects
 6. Network & Experience
-7. Contact CTA / inquiry drawer
+7. Contact CTA
 
-The requested `INDUSTRIES`, `PLATFORM`, and `INSIGHTS` sections are intentionally excluded. ABOUT is kept focused on the company introduction.
+`INDUSTRIES`, `PLATFORM`, and `INSIGHTS` are intentionally excluded. ABOUT is focused on company introduction only.
 
-## Run locally
+## Preview without PHP
 
-PHP built-in server:
+Open `index.html` directly, or use VS Code Live Server.
+
+```text
+index.html
+```
+
+No PHP installation is required for this design-preview file.
+
+## PHP preview
+
+If PHP is installed:
 
 ```bash
 php -S localhost:8080
@@ -34,40 +52,51 @@ php -S localhost:8080
 
 Then open `http://localhost:8080`.
 
-A regular Apache/Nginx PHP host can also serve the project without a build step.
-
 ## Directory
 
 ```text
 /
-├─ index.php
+├─ index.html          # static design preview
+├─ index.php           # PHP-ready homepage
+├─ README.md
 └─ assets/
    ├─ css/
    │  └─ style.css
+   ├─ img/
+   │  └─ gwpacific-logo.svg
    └─ js/
       └─ main.js
 ```
 
-## Interaction features
+## Interaction policy
 
-- Full-screen autoplay hero with fade transitions
-- GSAP text entrance and ScrollTrigger reveal animations
-- Scroll-driven process progress line
-- Lenis smooth scrolling
-- Interactive business accordion with image crossfade
+The prototype deliberately avoids scroll-jacking. Browser-native vertical scrolling is preserved.
+
+Included:
+- Swiper hero slider with manual navigation and restrained autoplay
 - Swiper project carousel
-- Custom desktop cursor and subtle magnetic CTA interactions
-- Responsive mobile navigation
-- Slide-in project inquiry panel
-- `prefers-reduced-motion` accessibility fallback
+- GSAP/ScrollTrigger one-time reveal transitions
+- Sticky responsive header
+- Full-screen mobile navigation
+- `prefers-reduced-motion` fallback
+
+Removed from the first prototype:
+- Lenis smooth-scroll override
+- Scroll-driven scrub/parallax effects
+- Custom cursor
+- Magnetic button movement
+- Business hover accordion
+- Forced horizontal scroll interactions
+
+This keeps the interaction layer closer to a production corporate website and improves mouse-wheel, trackpad, touch and mobile scrolling behavior.
 
 ## Image note
 
-The prototype currently uses external Unsplash imagery as temporary design assets. For production, replace these with GW Pacific's own project, exhibition, meeting, and industrial photographs under a local assets directory.
+The current prototype uses external Unsplash images as temporary placeholders. Production should replace them with GW Pacific-owned project, exhibition, meeting and industrial photographs.
 
 ## GNUBOARD conversion plan
 
-The next implementation phase should split the prototype into a GNUBOARD theme structure, for example:
+After the visual direction is approved, the next phase can split the prototype into a GNUBOARD theme:
 
 ```text
 /theme/gwpacific/
@@ -82,4 +111,4 @@ The next implementation phase should split the prototype into a GNUBOARD theme s
       └─ inquiry/
 ```
 
-Recommended admin-managed fields for the project board include project name, English title, year, country/city, service category, thumbnail/gallery, featured flag, ordering value, and project description.
+Projects can then be managed through a dedicated GNUBOARD board skin and rendered automatically on the homepage.
