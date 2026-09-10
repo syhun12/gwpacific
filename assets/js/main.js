@@ -10,6 +10,17 @@
   const menuButton = $('.menu-button');
   const mobileNav = $('.mobile-nav');
 
+  /* The homepage keeps section anchors for in-page CTAs, while primary navigation opens full subpages. */
+  if (!document.body.classList.contains('subpage')) {
+    const routes = { '#about': 'about.html', '#business': 'business.html', '#projects': 'projects.html', '#contact': 'contact.html' };
+    $$('.desktop-nav a, .mobile-nav a, .footer-links a').forEach(link => {
+      const route = routes[link.getAttribute('href')];
+      if (route) link.setAttribute('href', route);
+    });
+    const inquiry = $('.header-inquiry');
+    if (inquiry) inquiry.setAttribute('href', 'contact.html');
+  }
+
   /* Native scrolling is intentionally preserved. */
   let scrollTicking = false;
   const updateScrollUI = () => {
