@@ -1,186 +1,181 @@
 # GW Pacific Website
 
-GW Pacific corporate website prototype. The visual system is based on the supplied GW Pacific logo and is structured for later conversion into a GNUBOARD/PHP theme.
+GW Pacific corporate website prototype for later GNUBOARD/PHP conversion.
 
-## Brand system
+## Current design direction
 
-- GW Red: `#E60012`
-- Pacific Blue: `#00A0E9`
-- White / light gray dominant layout
-- Dark charcoal used for high-contrast sections
-- Vector logo: `assets/img/gwpacific-logo.svg`
+The site was redesigned to reduce visual complexity and improve readability. Instead of a product-startup or AI-generated landing-page style, the current direction uses a conventional high-quality corporate website structure:
 
-## Design study
+- large but simple photographic hero
+- strong Korean headline hierarchy
+- white / light-gray content surfaces
+- Pacific Blue as the primary UI accent
+- GW Red as a restrained secondary accent
+- clear 3-column/2-column content grids
+- native browser scrolling
+- limited motion only for hero transitions and one-time section reveals
+- no scroll-jacking, custom cursor, magnetic buttons, horizontal-scroll tricks, or excessive technical decoration
 
-The current design direction was rebuilt after reviewing 20+ corporate and digital-product references across maritime, energy, engineering, consulting and modern frontend product sites.
+## Core service positioning
 
-Representative references included Wärtsilä, DNV, Kongsberg Maritime, Damen, Alfa Laval, Rolls-Royce, Siemens Energy, ABB, Jacobs, Worley, Saipem, TechnipFMC, Emerson, Honeywell, Schneider Electric, SLB, BCG, McKinsey, Vercel, Linear and Stripe.
+The website is centered on six service areas:
 
-The prototype combines industrial photography, large editorial typography, asymmetric grids, restrained corporate color, technical UI details, subtle data surfaces and lightweight motion. The requested `Next.js-like` feeling is treated as a visual/frontend design language rather than a migration to React/Next.js.
+1. B2B 마케팅 / B2B Marketing
+2. 고객 발굴 / Customer Development
+3. 시장 조사 / Market Research
+4. 행사 대행 / Exhibition & Event
+5. 기술 사업화 / Technology Commercialization
+6. 바우처 수행 / Export Voucher
 
-## Stack
+The export-voucher role is also highlighted separately on the homepage as an important business area.
 
-- Static HTML design previews
-- PHP entry points for every page
-- CSS3 responsive layout
-- Vanilla JavaScript
-- Swiper 11
-- GSAP + ScrollTrigger for lightweight reveals
-- Google Fonts: Inter / Noto Sans KR
-
-## Full page architecture
-
-The site is no longer homepage-only. Current pages are:
-
-```text
-/
-├─ index.html
-├─ index.php
-├─ about.html
-├─ about.php
-├─ business.html
-├─ business.php
-├─ projects.html
-├─ projects.php
-├─ project-detail.html
-├─ project-detail.php
-├─ contact.html
-├─ contact.php
-├─ README.md
-└─ assets/
-   ├─ css/
-   │  ├─ style.css
-   │  └─ subpage.css
-   ├─ img/
-   │  └─ gwpacific-logo.svg
-   └─ js/
-      └─ main.js
-```
-
-### Main
-
-1. High-density split hero / industrial image slider
-2. Company introduction
-3. Continuous business-development process
-4. Capability / business grid
-5. Selected project carousel
-6. Global network / experience visual
-7. Contact CTA
-
-### About
-
-- Company introduction only
-- Corporate positioning
-- Operating approach
-- Analysis / Connection / Execution philosophy
-
-### Business
-
-- B2B Business Development
-- Market Research & Consulting
-- Exhibition & Business Event
-- Digital Marketing
-- Detailed service scopes and workflow
-
-### Projects
-
-- Editorial project portfolio grid
-- INAMARINE 2026
-- SMM Hamburg 2026
-- GASTECH 2025
-- WeBUSAN
-
-### Project Detail
-
-Reusable project case-study template containing:
-
-- large project hero
-- location / year / field / scope information
-- project overview
-- work scope
-- pre-show / on-site / post-show process
-
-This page is intended to become the GNUBOARD project-board view skin later.
-
-### Contact
-
-- company and business contact information
-- project inquiry guidance
-- product / target / objective intake structure
-
-`INDUSTRIES`, `PLATFORM`, and `INSIGHTS` remain intentionally excluded. ABOUT remains focused on company introduction only.
-
-## Navigation
-
-Primary navigation on the homepage now routes to the full subpages. In-page CTA buttons can still move directly to homepage sections where appropriate.
-
-## Preview without PHP
-
-Open any `.html` file directly or use VS Code Live Server. No PHP installation is required for design review.
-
-Examples:
+## Information architecture
 
 ```text
-index.html
-about.html
-business.html
-projects.html
-project-detail.html
-contact.html
+HOME
+├─ ABOUT
+│  └─ 기업소개
+├─ BUSINESS
+│  ├─ B2B 마케팅
+│  ├─ 고객 발굴
+│  ├─ 시장 조사
+│  ├─ 행사 대행
+│  ├─ 기술 사업화
+│  └─ 바우처 수행
+├─ PORTFOLIO
+│  ├─ 수행내역 목록
+│  └─ 수행내역 상세
+└─ CONTACT
+   ├─ 사업문의
+   └─ 회사소개서
 ```
 
-## PHP preview
+No Insights, News, PR-material archive, platform page, or industry page is included in this version.
 
-If PHP is installed:
+## Portfolio privacy policy
+
+Public portfolio pages intentionally do **not** disclose client-company or ordering-institution names.
+
+Portfolio content is structured around:
+
+- year
+- region
+- project type
+- service scope
+- execution process
+- publicly shareable outcomes
+
+The detail template labels the client as `Confidential` and avoids identifiable customer information.
+
+## Pages
+
+```text
+index.html              # homepage static preview
+index.php               # PHP entry, serves index.html
+about.html              # company introduction
+about.php                # PHP entry
+business.html           # six service areas
+business.php             # PHP entry
+projects.html           # anonymized portfolio list
+projects.php              # PHP entry
+project-detail.html     # anonymized case-study template
+project-detail.php       # PHP entry
+contact.html            # inquiry + company profile CTA
+contact.php               # PHP entry
+```
+
+## Assets
+
+```text
+assets/
+├─ css/
+│  ├─ style.css
+│  └─ subpage.css
+├─ img/
+│  └─ gwpacific-logo.svg
+└─ js/
+   └─ main.js
+```
+
+## Interaction
+
+- Swiper 11 is used only on the homepage hero.
+- GSAP + ScrollTrigger are used only for small, one-time reveal transitions.
+- Native vertical scrolling is preserved.
+- `prefers-reduced-motion` is supported.
+- Mobile navigation is responsive and full-screen.
+- The portfolio is a normal responsive grid instead of a forced carousel.
+
+## Design reference study
+
+The redesign direction was informed by reviewing more than 20 corporate sites and GDWEB-selected corporate works, especially manufacturing, heavy industry, engineering, technology and holding-company websites.
+
+Reference set included examples such as:
+
+- Hyosung Heavy Industries
+- Hyosung Advanced Materials
+- Hyosung TNC
+- Hyosung Group
+- Sebang Group
+- SK Networks
+- DL Holdings
+- Hanwha Ocean
+- Doosan Enerbility
+- HDC Labs
+- Doosan Digital Innovation
+- Next Aerospace
+- Partron
+- Nifco Korea
+- Youyang
+- Euhan Flowtech
+- HCT
+- Dongsung Chemical
+- Dongsung Finetec
+- KTS Engineering
+- Sunil Electric
+- WonKang Metal
+- SIMPAC KDA
+- Hanbit Industry
+- Korea Electric/industrial references listed on GDWEB
+- GST and other recent manufacturing references
+
+The common design lessons applied here are clarity, strong photography, restrained brand color, simple navigation, large readable typography, and service/project information that can be understood without decorative UI.
+
+## Preview
+
+Without PHP, open `index.html` directly or use VS Code Live Server.
+
+With PHP installed:
 
 ```bash
 php -S localhost:8080
 ```
 
-Then use the corresponding PHP routes such as `/about.php`, `/business.php`, `/projects.php` and `/contact.php`.
+Then open `http://localhost:8080`.
 
-## Responsive behavior
+## Prototype placeholders
 
-The main page and every subpage are designed for desktop, tablet and mobile. Grid layouts collapse into single-column editorial layouts, project cards change from two-column to one-column, business scopes stack vertically and project metadata reorganizes for small screens.
+The current images are temporary Unsplash assets used to establish layout. Production should replace them with GW Pacific-owned exhibition, meeting, research, industrial-site and business-development photographs.
 
-## Interaction policy
+The `회사소개서` buttons currently show a placeholder message. Connect the actual PDF when the file is ready.
 
-Browser-native vertical scrolling is preserved. No Lenis, scroll-jacking, forced horizontal scrolling, custom cursor or magnetic movement is used.
+The contact form is also a visual prototype. During GNUBOARD conversion it should be connected to a dedicated inquiry board or mail module.
 
-Included:
+## GNUBOARD conversion target
 
-- Swiper hero slider with restrained autoplay and manual navigation
-- Swiper project carousel
-- top-of-page scroll progress indicator
-- GSAP/ScrollTrigger one-time text and image-mask reveals
-- sticky responsive navigation
-- full-screen mobile navigation
-- `prefers-reduced-motion` fallback
-
-## Image note
-
-The prototype currently uses external Unsplash imagery as temporary layout assets. Production should replace these with GW Pacific-owned exhibition, buyer meeting, industrial-site and project photography.
-
-## GNUBOARD conversion plan
-
-After visual approval, the HTML/PHP prototypes can be split into a shared GNUBOARD theme structure:
+After design approval, split the static prototype into a theme structure such as:
 
 ```text
 /theme/gwpacific/
 ├─ head.php
 ├─ tail.php
 ├─ index.php
-├─ page/
-│  ├─ about.php
-│  ├─ business.php
-│  └─ contact.php
 ├─ css/
 ├─ js/
 └─ skin/
    └─ board/
-      ├─ project-list/
-      ├─ project-view/
+      ├─ portfolio/
       └─ inquiry/
 ```
 
-Projects will then be managed through a GNUBOARD board and rendered automatically on the project list, detail page and homepage selected-project area.
+Portfolio posts can then be managed from GNUBOARD while enforcing anonymous public display fields.
